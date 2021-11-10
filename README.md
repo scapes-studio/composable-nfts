@@ -1,12 +1,12 @@
 # Composable NFTs
 
-The [ERC-721 metadata](https://eips.ethereum.org/EIPS/eip-721#specification) standard and the extensions [defined by OpenSea](https://docs.opensea.io/docs/metadata-standards) are a great base layer framework do define token metadata but fall short to define configuration standards that enable us to use our NFTs in different contexts.
+While the extensions [defined by OpenSea](https://docs.opensea.io/docs/metadata-standards) can form a base layer framework to the [ERC-721 metadata standard](https://eips.ethereum.org/EIPS/eip-721#specification), they fail to define configuration standards that enable NFTs in different composable contexts.
 
-The following configuration options power the [PunkScape Builder](https://punkscape.xyz/builder). If you have suggestions to extend this standard, please feel free to create a pull request or submit a GitHub issue.
+The following configuration options power the [PunkScape Builder](https://punkscape.xyz/builder).
 
 ## Transparent Compatibility
 
-By following this extension to the ERC721 metadata standard you make sure your project is compatible with (`transparent_image`, `pixel_density.width`, `pixel_density.height`):
+The following extension to the ERC 721 metadata standard ensures your project can integrate with third-party composable projects.  The `transparent_image` field is required unless your image is already transparent and has a `background_color` defined. The `background_color` field is optional, but recommended.  `pixel_density.width` and `pixel_density.height` are required fields for pixel art compatability as described below.
 
 ```json
 {
@@ -16,12 +16,9 @@ By following this extension to the ERC721 metadata standard you make sure your p
 }
 ```
 
-...with `transparent_image` being *required* and `background_color` being *suggested but not required*. If your `image` already is transparent and `background_color` is defined, the `transparent_image` configuration can be omitted.
-
-
 ## Pixel Art Compatibility
 
-To enable composability of pixel art NFTs, the `pixel_density` field defines the actual width and height in pixels of the image. Even if the image of a CryptoPunk could be 600px * 600px, the actual pixel density is 24px * 24px.
+The `pixel_density` field refers to the conceptual not literal pixel density, the perceived pixel width and height of the image. For example, even if the image of a CryptoPunk could be 600px * 600px, the pixel density, for the purposes of composability, is 24px * 24px.
 
 ```json
 {
@@ -33,14 +30,12 @@ To enable composability of pixel art NFTs, the `pixel_density` field defines the
 }
 ```
 
-...with `pixel_density` being a *strong suggestion*.
-
-If the pixel density is equal across all tokens, it can be defined in the contract level metadata via `token_pixel_density` (as described [here](https://docs.opensea.io/docs/contract-level-metadata)) instead:
+If the pixel density is equal across all tokens, it can be defined at the contract level metadata, rather than the individual NFT level metadata, via `token_pixel_density` (as described [here](https://docs.opensea.io/docs/contract-level-metadata)), as follows:
 
 ```json
 {
   "name": "NFT Project XYZ",
-  "description": "The wonderful NFT collection blah",
+  "description": "A wonderful NFT collection configured for composability",
   "image": "https://nft-project.xyz/logo.png",
   "external_link": "https://nft-project.xyz",
   "seller_fee_basis_points": 100,
@@ -51,3 +46,4 @@ If the pixel density is equal across all tokens, it can be defined in the contra
   }
 }
 ```
+If you have suggestions to extend this standard, please feel free to create a pull request or submit a GitHub issue.
