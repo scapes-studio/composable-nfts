@@ -2,11 +2,11 @@
 
 While the extensions [defined by OpenSea](https://docs.opensea.io/docs/metadata-standards) can form a base layer framework to the [ERC-721 metadata standard](https://eips.ethereum.org/EIPS/eip-721#specification), they fail to define configuration standards that enable NFTs in different composable contexts.
 
-The following configuration options power the [PunkScape Builder](https://punkscape.xyz/builder).
+The following extensions to the ERC 721 metadata standard ensure your project can integrate with other third-party composable projects like the [PunkScape Builder](https://punkscape.xyz/builder).
 
 ## Transparent Compatibility
 
-The following extension to the ERC 721 metadata standard ensures your project can integrate with third-party composable projects.  The `transparent_image` field is required unless your image is already transparent and has a `background_color` defined. The `background_color` field is optional, but recommended.  `pixel_density.width` and `pixel_density.height` are required fields for pixel art compatability as described below.
+The `transparent_image` field is required unless your image is already transparent and has a `background_color` defined. The `background_color` field is optional, but recommended.
 
 ```json
 {
@@ -19,6 +19,7 @@ The following extension to the ERC 721 metadata standard ensures your project ca
 ## Pixel Art Compatibility
 
 The `pixel_density` field refers to the conceptual not literal pixel density, the perceived pixel width and height of the image. For example, even if the image of a CryptoPunk could be 600px * 600px, the pixel density, for the purposes of composability, is 24px * 24px.
+`pixel_density.width` and `pixel_density.height` are required fields for pixel art compatability as described below:
 
 ```json
 {
