@@ -1,6 +1,6 @@
 # Composable NFTs
 
-The [ERC-721 metadata](https://eips.ethereum.org/EIPS/eip-721#specification) standard and the extensions [defined by OpenSea](https://docs.opensea.io/docs/metadata-standards) are a great base layer framework do define token metadata but fall short in defining configuration standards that enable us to use our NFTs in different contexts.
+The [ERC-721 metadata](https://eips.ethereum.org/EIPS/eip-721#specification) standard and the extensions [defined by OpenSea](https://docs.opensea.io/docs/metadata-standards) are a great base layer framework do define token metadata but fall short to define configuration standards that enable us to use our NFTs in different contexts.
 
 The following configuration options power the [PunkScape Builder](https://punkscape.xyz/builder). If you have suggestions to extend this standard, please feel free to create a pull request or submit a GitHub issue.
 
